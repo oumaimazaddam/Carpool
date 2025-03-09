@@ -17,10 +17,12 @@ Route::post('login', [JWTAuthController::class, 'login']);
 Route::get('trips', [TripController::class, 'index']); 
 Route::get('trips/{id}', [TripController::class, 'show']);
 //
+
 Route::middleware([JwtMiddleware::class])->group(function () {
     Route::get('user', [JWTAuthController::class, 'getUser']);
     Route::post('logout', [JWTAuthController::class, 'logout']);
     //
+    
     Route::post('/create-trip', [TripController::class, 'store']); 
     Route::put('trips/{id}', [TripController::class, 'update']); 
     Route::delete('trips/{id}', [TripController::class, 'destroy']); 
