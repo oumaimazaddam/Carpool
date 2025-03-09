@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('departure'); 
             $table->string('destination'); 
             $table->time('departure_time');
-            $table->time('estimate_arrival_time');
+            $table->time('estimate_arrival_time')->nullable();
             $table->decimal('price', 8, 2);
             $table->unsignedBigInteger('driver_id');
             $table->foreign('driver_id')->references('id')->on('users')->onDelete('cascade');
