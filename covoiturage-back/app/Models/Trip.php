@@ -12,7 +12,7 @@ class Trip extends Model
         'departure',
         'destination',
         'departure_time',
-        'arrival_time',
+        'estimate_arrival_time',
         'price',
         'driver_id',
         'rating',
