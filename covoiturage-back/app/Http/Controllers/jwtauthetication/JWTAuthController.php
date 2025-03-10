@@ -18,8 +18,16 @@ class JWTAuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'phone_number' => 'required|string|max:20',
+            'photo_profile' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'date_naissance' => 'required|date',
+            'role_id' => 'required|integer|exists:roles,id',
+            'num_vehicule' => 'nullable|string|max:50',
+            'matricule_permis' => 'nullable|string|max:50',
+
         ]);
 
         if($validator->fails()){
@@ -28,8 +36,14 @@ class JWTAuthController extends Controller
 
         $user = User::create([
             'name' => $request->get('name'),
+            'prenom' => $request->get('prenom'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
+            'phone_number' => $request->get('phone_number'),
+            'date_naissance' => $request->get('date_naissance'),
+            'role_id' => $request->get('role_id'),
+            'num_vehicule' => $request->get('num_vehicule'),
+            'matricule_permis' => $request->get('matricule_permis'),
             
         ]);
 
