@@ -33,14 +33,14 @@ class ProfileController extends Controller
     
         $validator = Validator::make($request->all(), [
             'name' => 'sometimes|string|max:255',
-            'prenom' => 'sometimes|string|max:255',
+           
             'email' => 'sometimes|string|email|max:255|unique:users,email,' . JWTAuth::user()->id,
             'phone_number' => 'sometimes|string|max:20',
             'photo_profile' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'date_naissance' => 'sometimes|date',
+            'birthday' => 'sometimes|date',
             'role_id' => 'sometimes|integer|exists:roles,id',
-            'num_vehicule' => 'sometimes|string|max:50',
-            'matricule_permis' => 'sometimes|string|max:50',
+            'car_id' => 'sometimes|string|max:50',
+            'drivingLicence' => 'sometimes|string|max:50',
             'password' => 'sometimes|string|min:6|confirmed',
         ]);
     
@@ -53,9 +53,7 @@ class ProfileController extends Controller
             $user->name = $request->name;
         }
     
-        if ($request->has('prenom')) {
-            $user->prenom = $request->prenom;
-        }
+      
     
         if ($request->has('email')) {
             $user->email = $request->email;
@@ -65,20 +63,20 @@ class ProfileController extends Controller
             $user->phone_number = $request->phone_number;
         }
     
-        if ($request->has('date_naissance')) {
-            $user->date_naissance = $request->date_naissance;
+        if ($request->has('birthday')) {
+            $user->birthday = $request->birthday;
         }
     
         if ($request->has('role_id')) {
             $user->role_id = $request->role_id;
         }
     
-        if ($request->has('num_vehicule')) {
-            $user->num_vehicule = $request->num_vehicule;
+        if ($request->has('car_id')) {
+            $user->car_id = $request->car_id;
         }
     
-        if ($request->has('matricule_permis')) {
-            $user->matricule_permis = $request->matricule_permis;
+        if ($request->has('drivingLicence')) {
+            $user->drivingLicence = $request->drivingLicence;
         }
     
         if ($request->has('password')) {
