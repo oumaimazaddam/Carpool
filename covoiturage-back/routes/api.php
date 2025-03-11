@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\jwtauthetication\JWTAuthController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\JwtMiddleware;
 use App\Http\Controllers\TripController;
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
@@ -26,6 +27,9 @@ Route::middleware([JwtMiddleware::class])->group(function () {
     Route::post('/create-trip', [TripController::class, 'store']); 
     Route::put('trips/{id}', [TripController::class, 'update']); 
     Route::delete('trips/{id}', [TripController::class, 'destroy']); 
-   
+   //
+   Route::get('show-profile', [ProfileController::class, 'show']);   
+   Route::put('update-profile', [ProfileController::class, 'update']);  
+   Route::delete('delete-profile', [ProfileController::class, 'deleteAccount']);
 
 });
