@@ -33,7 +33,7 @@ public function update(Request $request, $id)
     if (!$user) {
         return response()->json(['error' => 'User not found'], 404);
     }
-
+//Test
     $validator = Validator::make($request->all(), [
         'name' => 'sometimes|string|max:255',
         'email' => 'sometimes|string|email|max:255|unique:users,email,' . $id,
@@ -50,7 +50,7 @@ public function update(Request $request, $id)
         return response()->json($validator->errors(), 400);
     }
 
-    // Mettre à jour les champs
+    
     if ($request->has('name')) {
         $user->name = $request->name;
     }

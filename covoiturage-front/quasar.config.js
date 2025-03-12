@@ -93,6 +93,7 @@ module.exports = configure(function (/* ctx */) {
     framework: {
       config: {},
 
+
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
 
@@ -106,7 +107,9 @@ module.exports = configure(function (/* ctx */) {
       // Quasar plugins
       plugins: [
         'AppFullscreen'
+        
       ]
+      
     },
 
     // animations: 'all', // --- includes all animations

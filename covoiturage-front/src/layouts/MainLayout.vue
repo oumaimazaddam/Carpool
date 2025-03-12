@@ -100,7 +100,16 @@
               <q-item-label>Financement</q-item-label>
             </q-item-section>
           </q-item>
+
         </q-expansion-item>
+        <q-item to="/Profile" active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="person" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>User Profile</q-item-label>
+          </q-item-section>
+        </q-item>
 
         <q-item to="/Messenger" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>

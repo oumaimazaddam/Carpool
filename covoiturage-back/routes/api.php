@@ -31,4 +31,4 @@ Route::middleware([JwtMiddleware::class])->group(function () {
    Route::get('show-profile/{id}', [ProfileController::class, 'show']);   
    Route::put('update-profile/{id}', [ProfileController::class, 'update']);  
    Route::delete('delete-profile/{id}', [ProfileController::class, 'deleteAccount']);
-});
+});//Test

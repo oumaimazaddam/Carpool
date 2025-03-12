@@ -108,10 +108,23 @@ export default {
         this.errorMessage = error.response?.data?.message || 'Login failed. Please try again.';
       } finally {
         this.loading = false;
+
+      }
+    },
+    async fetchProfile() {
+      try {
+        const response = await axios.get('http://localhost:8000/api/show-profile', {
+          headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` }
+        });
+        localStorage.setItem('user_profile', JSON.stringify(response.data));
+      } catch (error) {
+        console.error('Error fetching profile:', error);
       }
     }
   }
 };
+  
+
 </script>
 
 <style scoped>

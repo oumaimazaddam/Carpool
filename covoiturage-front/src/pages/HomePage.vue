@@ -12,6 +12,10 @@
           class="full-width q-mb-md"
           @click="goToLogin"
         />
+        <q-card-section class="text-center">
+        <q-btn label="Go to Profile" color="secondary" @click="goToProfile" />
+        </q-card-section>
+
         
       </q-card-section>
     </q-card>
@@ -27,6 +31,12 @@ const router = useRouter()
 const goToLogin = () => {
     window.location.href = 'http://localhost:9000/login1'; 
   };
+ 
+ const goToProfile=()=>{
+  window.location.href = 'http://localhost:9000/profile';
+  }
+
+
   
  
 </script>

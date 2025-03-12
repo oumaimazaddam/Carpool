@@ -2,7 +2,7 @@ const routes = [
   
     {
     path: '/',
-    redirect: '/Login1' // 🔹 Redirige vers Login1 au lancement
+    redirect: '/Login1' 
     },
     {
       path: '/',
@@ -13,6 +13,7 @@ const routes = [
       { path: '/Dashboard2', component: () => import('pages/Dashboard2.vue') },
       { path: '/Dashboard3', component: () => import('src/pages/Dashboard3.vue') },
       { path: '/Liste', component: () => import('src/pages/ListeUtilisateur.vue') },
+      { path: '/Profile', component: () => import('src/pages/Profile.vue') },
       { path: '/Messenger', component: () => import('src/pages/Messenger.vue') },
       { path: '/Feedbacks', component: () => import('src/pages/Feedbacks.vue') },
       { path: '/Finencement', component: () => import('src/pages/Finencement.vue') },
