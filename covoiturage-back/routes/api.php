@@ -28,8 +28,7 @@ Route::middleware([JwtMiddleware::class])->group(function () {
     Route::put('trips/{id}', [TripController::class, 'update']); 
     Route::delete('trips/{id}', [TripController::class, 'destroy']); 
    //
-   Route::get('show-profile', [ProfileController::class, 'show']);   
-   Route::put('update-profile', [ProfileController::class, 'update']);  
-   Route::delete('delete-profile', [ProfileController::class, 'deleteAccount']);
-
+   Route::get('show-profile/{id}', [ProfileController::class, 'show']);   
+   Route::put('update-profile/{id}', [ProfileController::class, 'update']);  
+   Route::delete('delete-profile/{id}', [ProfileController::class, 'deleteAccount']);
 });
