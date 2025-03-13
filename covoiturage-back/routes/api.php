@@ -17,6 +17,7 @@ Route::post('login', [JWTAuthController::class, 'login']);
 //
 Route::get('trips', [TripController::class, 'index']); 
 Route::get('trips/{id}', [TripController::class, 'show']);
+
 //
 
 Route::middleware([JwtMiddleware::class])->group(function () {
@@ -24,11 +25,13 @@ Route::middleware([JwtMiddleware::class])->group(function () {
     Route::post('logout', [JWTAuthController::class, 'logout']);
     //
     
-    Route::post('/create-trip', [TripController::class, 'store']); 
-    Route::put('trips/{id}', [TripController::class, 'update']); 
-    Route::delete('trips/{id}', [TripController::class, 'destroy']); 
+    Route::post('/create-trip', [TripController::class, 'store']);
+    Route::put('trips/{id}', [TripController::class, 'update']);
+    Route::delete('trips/{id}', [TripController::class, 'destroy']);
+    Route::get('/search-trip', [TripController::class, 'search']);
+
    //
    Route::get('show-profile/{id}', [ProfileController::class, 'show']);   
    Route::put('update-profile/{id}', [ProfileController::class, 'update']);  
    Route::delete('delete-profile/{id}', [ProfileController::class, 'deleteAccount']);
-});//Test
+});

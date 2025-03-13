@@ -89,4 +89,28 @@ class TripController extends Controller
         $trip->delete();
         return response()->json(['message' => 'Trip deleted successfully']);
     }
+    public function search(Request $request)
+    {
+        $query = Trip::query();
+    
+        // Filtrage des paramètres de recherche
+        if ($request->has('departure')) {
+            $query->where('departure', 'like', '%' . $request->departure . '%');
+        }
+    
+        if ($request->has('destination')) {
+            $query->where('destination', 'like', '%' . $request->destination . '%');
+        }
+    
+        if ($request->has('price')) {
+            $query->where('price', '<=', $request->price);
+        }
+    
+        // Exécution de la requête
+        $trips = $query->get();
+    
+        // Retour des résultats
+        return response()->json($trips);
+    }
+    
 }
