@@ -29,11 +29,17 @@ class ProfileController extends Controller
 public function update(Request $request, $id)
 {
     $user = User::find($id);
+    //dd($request->all());  
+    // dd($request->name);
+    //return response()->json([
+       // 'name' => $request->name  // Retourne la valeur de 'name' dans une réponse JSON
+    //]);
 
     if (!$user) {
         return response()->json(['error' => 'User not found'], 404);
     }
-//Test
+    
+
     $validator = Validator::make($request->all(), [
         'name' => 'sometimes|string|max:255',
         'email' => 'sometimes|string|email|max:255|unique:users,email,' . $id,
@@ -88,8 +94,9 @@ public function update(Request $request, $id)
         $photoPath = $photo->store('profile_pictures', 'public');
         $user->photo_profile = $photoPath;
     }
-
+   
     $user->save();
+   
 
     return response()->json([
         'message' => 'Profile updated successfully',
